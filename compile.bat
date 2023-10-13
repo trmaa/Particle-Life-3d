@@ -1,5 +1,5 @@
 javac -d . *.java
 
-jar cfe Snake.jar Main *.class
+jar cfe Universo.jar Main *.class
 
-java -jar Snake.jar
+java -jar Universo.jar
