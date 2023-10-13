@@ -2,7 +2,7 @@ import javax.swing.*;
 
 public class Ventana extends JFrame {
     public Ventana() {
-        setTitle("3d | trmaa");
+        setTitle("Universo | trmaa");
 
         setSize(1280, 720);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
