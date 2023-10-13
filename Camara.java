@@ -1,6 +1,6 @@
 public class Camara {
     public static vec3 position = new vec3(25, 25, -400);
-    public static vec2 angle = new vec2(Math.PI * 0.5, Math.PI * 0.5);
+    public static vec2 angle = new vec2(0, 0);
 
     public static int far = 10000;
     public static float near = 0.1f;
@@ -16,20 +16,20 @@ public class Camara {
             Camara.angle.x -= 0.1;
 
         if (MyKeyListener.W) {
-            Camara.position.x += Math.cos(Camara.angle.y) * 40;
-            Camara.position.z += Math.sin(Camara.angle.y) * 40;
+            Camara.position.x += Math.cos(Camara.angle.y) * 100;
+            Camara.position.z += Math.sin(Camara.angle.y) * 100;
         }
         if (MyKeyListener.S) {
-            Camara.position.x -= Math.cos(Camara.angle.y) * 40;
-            Camara.position.z -= Math.sin(Camara.angle.y) * 40;
+            Camara.position.x -= Math.cos(Camara.angle.y) * 100;
+            Camara.position.z -= Math.sin(Camara.angle.y) * 100;
         }
         if (MyKeyListener.A) {
-            Camara.position.x += Math.cos(Camara.angle.y + Math.PI * 0.5) * 40;
-            Camara.position.z += Math.sin(Camara.angle.y + Math.PI * 0.5) * 40;
+            Camara.position.x += Math.cos(Camara.angle.y + Math.PI * 0.5) * 100;
+            Camara.position.z += Math.sin(Camara.angle.y + Math.PI * 0.5) * 100;
         }
         if (MyKeyListener.D) {
-            Camara.position.x -= Math.cos(Camara.angle.y + Math.PI * 0.5) * 40;
-            Camara.position.z -= Math.sin(Camara.angle.y + Math.PI * 0.5) * 40;
+            Camara.position.x -= Math.cos(Camara.angle.y + Math.PI * 0.5) * 100;
+            Camara.position.z -= Math.sin(Camara.angle.y + Math.PI * 0.5) * 100;
         }
     }
 
@@ -46,18 +46,18 @@ public class Camara {
         double b = (180 - (a * 180 / Math.PI) - 90) * Math.PI / 180;
         double c = (Camara.angle.y - Math.PI * 0.5) - b;
 
-        double h = Math.sqrt(Math.pow(point.x - Camara.position.x, 2) + Math.pow(point.z - Camara.position.z, 2));
+        double h = (point.z - Camara.position.z) / Math.cos(a);
 
         // para angulo x (y)
         double d = Math.atan2(point.x - Camara.position.x, point.y - Camara.position.y);
         double e = (180 - (d * 180 / Math.PI) - 90) * Math.PI / 180;
         double f = (Camara.angle.x - Math.PI * 0.5) - e;
 
-        double i = Math.sqrt(Math.pow(point.x - Camara.position.x, 2) + Math.pow(point.y - Camara.position.y, 2));
+        double i = (point.y - Camara.position.y) / Math.cos(d);
 
         return new vec3(
                 Math.cos(c) * h,
-                Math.sin(f) * i,
+                Math.cos(f) * i,
                 Math.sin(c) * h);
     }
 
