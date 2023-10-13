@@ -18,22 +18,13 @@ public class Canvas extends JPanel {
 
         this.cls(g, new Color(0x000000));
 
-        // this.print(g, Camara.position.x, Camara.position.z, 10, 10, new
-        // Color(0xffffff));
-        // this.print(g, Camara.position.x + Math.cos(Camara.angle.y) * 25,
-        // Camara.position.z + Math.sin(Camara.angle.y) * 25, 5, 5, new
-        // Color(0xffffff));
-        // for (int i = 0; i < Obj.points.length; i++) {
-        // this.print(g, Obj.points[i].x, Obj.points[i].z, 10, 10, new Color(0xffff00));
-        // }
-
-        for (int i = 0; i < Main.obj.points.length; i++) {
+        for (int i = 0; i < Main.redp.length; i++) {
             this.print(g,
-                    Camara.project(Main.obj.points[i]).x,
-                    Camara.project(Main.obj.points[i]).y,
-                    30 * (Camara.far / Camara.distance(Main.obj.points[i]) * Camara.near),
-                    30 * (Camara.far / Camara.distance(Main.obj.points[i]) * Camara.near),
-                    new Color(0xffffff));
+                    Camara.project(Main.redp[i].position).x,
+                    Camara.project(Main.redp[i].position).y,
+                    30 * (Camara.far / Camara.distance(Main.redp[i].position) * Camara.near),
+                    30 * (Camara.far / Camara.distance(Main.redp[i].position) * Camara.near),
+                    Main.redp[i].color);
         }
     }
 

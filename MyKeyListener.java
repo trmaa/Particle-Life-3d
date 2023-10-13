@@ -12,6 +12,9 @@ public class MyKeyListener implements KeyListener {
     public static boolean S = false;
     public static boolean D = false;
 
+    public static boolean E = false;
+    public static boolean Q = false;
+
     @Override
     public void keyPressed(KeyEvent e) {
         MyKeyListener.UP = e.getKeyCode() == KeyEvent.VK_UP ? true : MyKeyListener.UP;
@@ -23,6 +26,9 @@ public class MyKeyListener implements KeyListener {
         MyKeyListener.A = e.getKeyCode() == KeyEvent.VK_A ? true : MyKeyListener.A;
         MyKeyListener.S = e.getKeyCode() == KeyEvent.VK_S ? true : MyKeyListener.S;
         MyKeyListener.D = e.getKeyCode() == KeyEvent.VK_D ? true : MyKeyListener.D;
+
+        MyKeyListener.E = e.getKeyCode() == KeyEvent.VK_E ? true : MyKeyListener.E;
+        MyKeyListener.Q = e.getKeyCode() == KeyEvent.VK_Q ? true : MyKeyListener.Q;
     }
 
     @Override
@@ -36,6 +42,9 @@ public class MyKeyListener implements KeyListener {
         MyKeyListener.A = e.getKeyCode() == KeyEvent.VK_A ? false : MyKeyListener.A;
         MyKeyListener.S = e.getKeyCode() == KeyEvent.VK_S ? false : MyKeyListener.S;
         MyKeyListener.D = e.getKeyCode() == KeyEvent.VK_D ? false : MyKeyListener.D;
+
+        MyKeyListener.E = e.getKeyCode() == KeyEvent.VK_E ? false : MyKeyListener.E;
+        MyKeyListener.Q = e.getKeyCode() == KeyEvent.VK_Q ? false : MyKeyListener.Q;
     }
 
     @Override

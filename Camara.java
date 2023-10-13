@@ -5,34 +5,6 @@ public class Camara {
     public static int far = 10000;
     public static float near = 0.1f;
 
-    public static void move() {
-        if (MyKeyListener.LEFT)
-            Camara.angle.y += 0.1;
-        if (MyKeyListener.RIGHT)
-            Camara.angle.y -= 0.1;
-        if (MyKeyListener.UP)
-            Camara.angle.x += 0.1;
-        if (MyKeyListener.DOWN)
-            Camara.angle.x -= 0.1;
-
-        if (MyKeyListener.W) {
-            Camara.position.x += Math.cos(Camara.angle.y) * 100;
-            Camara.position.z += Math.sin(Camara.angle.y) * 100;
-        }
-        if (MyKeyListener.S) {
-            Camara.position.x -= Math.cos(Camara.angle.y) * 100;
-            Camara.position.z -= Math.sin(Camara.angle.y) * 100;
-        }
-        if (MyKeyListener.A) {
-            Camara.position.x += Math.cos(Camara.angle.y + Math.PI * 0.5) * 100;
-            Camara.position.z += Math.sin(Camara.angle.y + Math.PI * 0.5) * 100;
-        }
-        if (MyKeyListener.D) {
-            Camara.position.x -= Math.cos(Camara.angle.y + Math.PI * 0.5) * 100;
-            Camara.position.z -= Math.sin(Camara.angle.y + Math.PI * 0.5) * 100;
-        }
-    }
-
     public static double distance(vec3 point) {
         return Math.sqrt(
                 Math.pow(point.x - Camara.position.x, 2) +
@@ -49,7 +21,7 @@ public class Camara {
         double h = (point.z - Camara.position.z) / Math.cos(a);
 
         // para angulo x (y)
-        double d = Math.atan2(point.x - Camara.position.x, point.y - Camara.position.y);
+        double d = Math.atan2(h, point.y - Camara.position.y);
         double e = (180 - (d * 180 / Math.PI) - 90) * Math.PI / 180;
         double f = (Camara.angle.x - Math.PI * 0.5) - e;
 
@@ -69,16 +41,5 @@ public class Camara {
                     p.y * (Camara.far / Camara.distance(point) * Camara.near));
         else
             return new vec2(1000, 1000);
-    }
-}
-
-class Obj {
-    vec3[] points = new vec3[1000];
-
-    Obj() {
-        for (int i = 0; i < 1000; i++) {
-            this.points[i] = new vec3(Math.random() * 10000 - 5000, Math.random() * 10000 - 5000,
-                    Math.random() * 10000 - 5000);
-        }
     }
 }
