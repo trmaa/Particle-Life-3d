@@ -25,7 +25,7 @@ public class Particle {
 
         this.angle.x += predict[0] > predict[1] ? 0.1 : -0.1;
         this.angle.y += predict[2] > predict[3] ? 0.1 : -0.1;
-        this.speed += predict[4];
+        this.speed = predict[4] * 500 - 250;
 
         this.velocity = (new vec3(
                 Math.cos(this.angle.y) * Math.cos(this.angle.x) * this.speed,
