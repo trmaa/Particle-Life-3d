@@ -2,7 +2,7 @@ public class Camara {
     public static vec3 position = new vec3(25, 25, -400);
     public static vec2 angle = new vec2(0, 0);
 
-    public static int far = 10000;
+    public static int far = 12800;
     public static float near = 0.1f;
 
     public static double distance(vec3 point) {

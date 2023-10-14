@@ -25,6 +25,7 @@ public class Canvas extends JPanel {
                     15 * (Camara.far / Camara.distance(Main.redp[i].position) * Camara.near),
                     15 * (Camara.far / Camara.distance(Main.redp[i].position) * Camara.near),
                     Main.redp[i].color);
+            Main.redp[i].move();
         }
     }
 
