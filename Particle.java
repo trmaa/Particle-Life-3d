@@ -2,7 +2,10 @@ import java.awt.Color;
 
 public class Particle {
     public vec3 position;
-    public vec3 velocity = new vec3(Math.random() * 5 - 2.5, Math.random() * 5 - 2.5, Math.random() * 5 - 2.5);
+    public vec3 velocity = new vec3(0, 0, 0);
+    public vec2 angle = new vec2(Math.random() * Math.PI * 2, Math.random() * Math.PI * 2);
+    public float speed = 10;
+    public float friction = 2;
     public Color color;
 
     public Particle(vec3 point, Color color) {
@@ -11,7 +14,10 @@ public class Particle {
     }
 
     public void move() {
-        this.velocity.add(new vec3(Math.random() * 5 - 2.5, Math.random() * 5 - 2.5, Math.random() * 5 - 2.5));
+        this.velocity.add(new vec3(
+                Math.cos(this.angle.y) * Math.cos(this.angle.x) * this.speed,
+                Math.sin(this.angle.y) * Math.cos(this.angle.x) * this.speed,
+                Math.sin(this.angle.x) * this.speed));
         this.position.add(this.velocity);
 
         if (this.position.x > 5000)
