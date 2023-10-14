@@ -10,7 +10,7 @@ public class Main {
         for (int i = 0; i < Main.redp.length; i++) {
             Main.redp[i] = new Particle(
                     new vec3(Math.random() * 200 - 100, Math.random() * 200 - 100, Math.random() * 200 - 100),
-                    i < Main.redp.length * 0.5 ? new Color(0x00ffff) : new Color(0xff0000));
+                    new Color(0x00ffff));
         }
 
         while (true) {
