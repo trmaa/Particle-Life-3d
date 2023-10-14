@@ -1,6 +1,6 @@
 public class Camara {
-    public static vec3 position = new vec3(25, 25, -400);
-    public static vec2 angle = new vec2(0, 0);
+    public static vec3 position = new vec3(-5104, 2625, -1573);
+    public static vec2 angle = new vec2(-0.5, 0.3);
 
     public static int far = 12800;
     public static float near = 0.1f;
