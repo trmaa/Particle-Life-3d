@@ -33,7 +33,7 @@ public class Network {
 
     // Función de activación (puede ser una función sigmoide u otra)
     private double sigmoid(double x) {
-        return 1 / (1 + Math.exp(-x));
+        return 1 / (1 + Math.exp(-x)) - 1 / 2;
     }
 
     public double[] predict(double[] inputs) {
