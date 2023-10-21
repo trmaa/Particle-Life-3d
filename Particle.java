@@ -7,8 +7,8 @@ public class Particle {
     public double speed = Math.random() * 10;
     public Color color;
 
-    public double[] inputs = new double[4];
-    public Network brain = new Network(4, 4, 5);
+    public double[] inputs = new double[6];
+    public Network brain = new Network(6, 5, 5);
 
     public Particle(vec3 point, Color color) {
         this.position = point;
@@ -16,10 +16,12 @@ public class Particle {
     }
 
     public void move() {
-        this.inputs[0] = Math.random() * 1000 - 500;
-        this.inputs[1] = Math.random() * 1000 - 500;
-        this.inputs[2] = Math.random() * 1000 - 500;
-        this.inputs[3] = Math.random() * 1000 - 500;
+        this.inputs[0] = this.position.x;
+        this.inputs[1] = this.position.y;
+        this.inputs[2] = this.position.z;
+        this.inputs[3] = this.angle.x;
+        this.inputs[4] = this.angle.y;
+        this.inputs[5] = this.speed;
 
         double[] predict = this.brain.predict(this.inputs);
 
