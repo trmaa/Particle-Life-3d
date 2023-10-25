@@ -27,16 +27,16 @@ public class Canvas extends JPanel {
             Main.redp[i].move();
         }
         this.print(g,
-                Camara.project(new vec3(4000, 4000, -4000)).x,
-                Camara.project(new vec3(4000, 4000, -4000)).y,
-                16,
-                16,
+                Camara.project(Particle.obj.position).x,
+                Camara.project(Particle.obj.position).y,
+                256 * (Camara.far / Camara.distance(Particle.obj.position) * Camara.near),
+                256 * (Camara.far / Camara.distance(Particle.obj.position) * Camara.near),
                 new Color(0xff0000));
         this.print(g,
-                Camara.project(new vec3(-4000, -4000, 4000)).x,
-                Camara.project(new vec3(-4000, -4000, 4000)).y,
-                16,
-                16,
+                Camara.project(Particle.obj2.position).x,
+                Camara.project(Particle.obj2.position).y,
+                256 * (Camara.far / Camara.distance(Particle.obj2.position) * Camara.near),
+                256 * (Camara.far / Camara.distance(Particle.obj2.position) * Camara.near),
                 new Color(0x0077ff));
     }
 
