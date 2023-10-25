@@ -10,8 +10,8 @@ public class Particle {
 
     public RigidBody rb = new RigidBody();
 
-    public static Particle obj = new Particle(new vec3(0, 0, 0), new Color(0xff0000), 9.81f);
-    public static Particle obj2 = new Particle(new vec3(0, 4000, 0), new Color(0xff0000), 10.81f);
+    public static Particle obj = new Particle(new vec3(-4000, -4000, 4000), new Color(0xff0000), 9.81f);
+    public static Particle obj2 = new Particle(new vec3(4000, 4000, -4000), new Color(0xff0000), 15.81f);
 
     public Particle(vec3 point, Color color, float g) {
         this.position = point;

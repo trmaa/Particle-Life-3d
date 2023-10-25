@@ -1,6 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.Color;
 
 public class Canvas extends JPanel {
     public MyKeyListener kl = new MyKeyListener();
@@ -28,17 +27,17 @@ public class Canvas extends JPanel {
             Main.redp[i].move();
         }
         this.print(g,
-                Camara.project(new vec3(0, 0, 0)).x,
-                Camara.project(new vec3(0, 0, 0)).y,
+                Camara.project(new vec3(4000, 4000, -4000)).x,
+                Camara.project(new vec3(4000, 4000, -4000)).y,
                 16,
                 16,
                 new Color(0xff0000));
         this.print(g,
-                Camara.project(new vec3(0, 4000, 0)).x,
-                Camara.project(new vec3(0, 4000, 0)).y,
+                Camara.project(new vec3(-4000, -4000, 4000)).x,
+                Camara.project(new vec3(-4000, -4000, 4000)).y,
                 16,
                 16,
-                new Color(0x0000ff));
+                new Color(0x0077ff));
     }
 
     public void cls(Graphics g, Color c) {
