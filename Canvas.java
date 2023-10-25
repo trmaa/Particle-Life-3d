@@ -33,6 +33,12 @@ public class Canvas extends JPanel {
                 16,
                 16,
                 new Color(0xff0000));
+        this.print(g,
+                Camara.project(new vec3(0, 4000, 0)).x,
+                Camara.project(new vec3(0, 4000, 0)).y,
+                16,
+                16,
+                new Color(0x0000ff));
     }
 
     public void cls(Graphics g, Color c) {

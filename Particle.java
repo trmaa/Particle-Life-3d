@@ -10,7 +10,8 @@ public class Particle {
 
     public RigidBody rb = new RigidBody();
 
-    public static Particle obj = new Particle(new vec3(0, 0, 0), new Color(0xff0000), 90.81f);
+    public static Particle obj = new Particle(new vec3(0, 0, 0), new Color(0xff0000), 9.81f);
+    public static Particle obj2 = new Particle(new vec3(0, 4000, 0), new Color(0xff0000), 10.81f);
 
     public Particle(vec3 point, Color color, float g) {
         this.position = point;
@@ -20,6 +21,7 @@ public class Particle {
 
     public void move() {
         this.rb.force(this, Particle.obj);
+        this.rb.force(this, Particle.obj2);
 
         this.position.add(this.velocity);
 
