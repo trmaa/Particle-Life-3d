@@ -21,11 +21,6 @@ public class Particle {
     public void move() {
         this.rb.force(this, Particle.obj);
 
-        this.velocity.add(new vec3(
-                Math.cos(this.angle.y) * Math.cos(this.angle.x) * this.speed,
-                Math.sin(this.angle.x) * this.speed,
-                Math.sin(this.angle.y) * Math.cos(this.angle.x) * this.speed));
-
         this.position.add(this.velocity);
 
         if (this.position.x > 5000)
