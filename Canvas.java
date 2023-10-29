@@ -32,12 +32,6 @@ public class Canvas extends JPanel {
                 256 * (Camara.far / Camara.distance(Particle.obj.position) * Camara.near),
                 256 * (Camara.far / Camara.distance(Particle.obj.position) * Camara.near),
                 new Color(0xff0000));
-        this.print(g,
-                Camara.project(Particle.obj2.position).x,
-                Camara.project(Particle.obj2.position).y,
-                256 * (Camara.far / Camara.distance(Particle.obj2.position) * Camara.near),
-                256 * (Camara.far / Camara.distance(Particle.obj2.position) * Camara.near),
-                new Color(0x0077ff));
     }
 
     public void cls(Graphics g, Color c) {
