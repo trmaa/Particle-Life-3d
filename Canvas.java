@@ -21,8 +21,8 @@ public class Canvas extends JPanel {
             this.print(g,
                     Camara.project(Main.redp[i].position).x,
                     Camara.project(Main.redp[i].position).y,
-                    30 * (Camara.far / Camara.distance(Main.redp[i].position) * Camara.near),
-                    30 * (Camara.far / Camara.distance(Main.redp[i].position) * Camara.near),
+		    (i==0?128:30) * (Camara.far / Camara.distance(Main.redp[i].position) * Camara.near),
+                    (i==0?128:30) * (Camara.far / Camara.distance(Main.redp[i].position) * Camara.near),
                     Main.redp[i].color);
             Main.redp[i].move();
         }

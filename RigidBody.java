@@ -7,7 +7,7 @@ public class RigidBody {
 				Math.atan2(dif.z, dif.x));
 
 		// o.speed = -obj.g * 1 / dif.magnitude();
-		o.speed = -obj.g;
+		o.speed = -obj.g*Camara.far*0.3/dif.magnitude();
 
 		o.velocity.add(new vec3(
 				Math.cos(angle.y) * Math.cos(angle.x) * o.speed,
