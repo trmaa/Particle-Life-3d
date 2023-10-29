@@ -13,10 +13,10 @@ public class Canvas extends JPanel {
 
     @Override
     protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
+        //super.paintComponent(g);
 
-        this.cls(g, new Color(0x000000));
-
+        this.cls(g, new Color(0,0,0,255));
+	
         for (int i = 0; i < Main.redp.length; i++) {
             this.print(g,
                     Camara.project(Main.redp[i].position).x,
