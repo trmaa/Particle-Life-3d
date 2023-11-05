@@ -2,7 +2,7 @@ import java.awt.Color;
 
 public class Particle {
     public vec3 position;
-    public vec3 velocity = new vec3(0, 100, 0);
+    public vec3 velocity = new vec3(0, Math.random()*200-100, Math.random()*200-100);
     public vec2 angle = new vec2(Math.random() * Math.PI * 0.5, Math.random() * Math.PI * 0.5);
     public double speed = 10;
     public float g = 1;
