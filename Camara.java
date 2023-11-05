@@ -37,8 +37,8 @@ public class Camara {
         vec3 p = Camara.translete(point);
         if (p.z <= 0)
             return new vec2(
-                    p.x * (Camara.far / Camara.distance(point) * Camara.near),
-                    p.y * (Camara.far / Camara.distance(point) * Camara.near));
+                    p.x*(Camara.far/Camara.distance(point)*Camara.near),
+                    p.y*(Camara.far/Camara.distance(point)*Camara.near));
         else
             return new vec2(1000, 1000);
     }
