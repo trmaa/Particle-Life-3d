@@ -17,6 +17,20 @@ public class Canvas extends JPanel {
 
         this.cls(g, new Color(0,0,0,255));
 	
+        this.print(g,
+                Camara.project(Particle.obj.position).x,
+                Camara.project(Particle.obj.position).y,
+                256 * (Camara.far / Camara.distance(Particle.obj.position) * Camara.near),
+                256 * (Camara.far / Camara.distance(Particle.obj.position) * Camara.near),
+                new Color(0x00ffff));
+        
+        this.print(g,
+                Camara.project(Particle.obj2.position).x,
+                Camara.project(Particle.obj2.position).y,
+                256 * (Camara.far / Camara.distance(Particle.obj2.position) * Camara.near),
+                256 * (Camara.far / Camara.distance(Particle.obj2.position) * Camara.near),
+                new Color(0x00ff00));
+
         for (int i = 0; i < Main.redp.length; i++) {
             this.print(g,
                     Camara.project(Main.redp[i].position).x,
@@ -26,12 +40,6 @@ public class Canvas extends JPanel {
                     Main.redp[i].color);
             Main.redp[i].move();
         }
-        this.print(g,
-                Camara.project(Particle.obj.position).x,
-                Camara.project(Particle.obj.position).y,
-                256 * (Camara.far / Camara.distance(Particle.obj.position) * Camara.near),
-                256 * (Camara.far / Camara.distance(Particle.obj.position) * Camara.near),
-                new Color(0xff0000));
     }
 
     public void cls(Graphics g, Color c) {
