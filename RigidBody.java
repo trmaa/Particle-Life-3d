@@ -13,5 +13,7 @@ public class RigidBody {
 				Math.cos(angle.y) * Math.cos(angle.x) * o.speed,
 				Math.sin(angle.x) * o.speed,
 				Math.sin(angle.y) * Math.cos(angle.x) * o.speed));
+
+		o.angle = new vec2(angle.x,angle.y);
 	}
 }

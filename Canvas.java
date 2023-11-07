@@ -35,9 +35,23 @@ public class Canvas extends JPanel {
             this.print(g,
                     Camara.project(Main.redp[i].position).x,
                     Camara.project(Main.redp[i].position).y,
-		            (i==0?128:30) * (Camara.far / Camara.distance(Main.redp[i].position) * Camara.near),
+                    (i==0?128:30) * (Camara.far / Camara.distance(Main.redp[i].position) * Camara.near),
                     (i==0?128:30) * (Camara.far / Camara.distance(Main.redp[i].position) * Camara.near),
                     Main.redp[i].color);
+	    
+	        vec3 np = new vec3(
+                Main.redp[i].position.x + Math.cos(Main.redp[i].angle.y) * Math.cos(Main.redp[i].angle.x) * (-100),
+                Main.redp[i].position.y + Math.sin(Main.redp[i].angle.x) * (-100),
+                Main.redp[i].position.z + Math.sin(Main.redp[i].angle.y) * Math.cos(Main.redp[i].angle.x) * (-100) 
+            );
+
+            this.print(g,
+                    Camara.project(np).x,
+                    Camara.project(np).y,
+                    (i==0?128:30) * (Camara.far / Camara.distance(Main.redp[i].position) * Camara.near)*0.5,
+                    (i==0?128:30) * (Camara.far / Camara.distance(Main.redp[i].position) * Camara.near)*0.5,
+                    Main.redp[i].color);
+
             Main.redp[i].move();
         }
     }
