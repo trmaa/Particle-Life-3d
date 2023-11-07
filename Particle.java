@@ -24,18 +24,5 @@ public class Particle {
         this.rb.force(this, Particle.obj2);
 
         this.position.add(this.velocity);
-
-        if(this.position.x > 5000)
-            this.position.x = 5000;
-        if(this.position.x < -5000)
-            this.position.x = -5000;
-        if(this.position.y > 5000)
-            this.position.y = 5000;
-        if(this.position.y < -5000)
-            this.position.y = -5000;
-        if(this.position.z > 5000)
-            this.position.z = 5000;
-        if(this.position.z < -5000)
-            this.position.z = -5000;
     }
 }

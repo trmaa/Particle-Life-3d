@@ -31,7 +31,7 @@ public class Canvas extends JPanel {
                 256 * (Camara.far / Camara.distance(Particle.obj2.position) * Camara.near),
                 new Color(0x00ff00));
 
-        for (int i = 0; i < Main.redp.length; i++) {
+        for (int i = Main.redp.length-1; i >= 0; i--) {
             this.print(g,
                     Camara.project(Main.redp[i].position).x,
                     Camara.project(Main.redp[i].position).y,
@@ -39,10 +39,10 @@ public class Canvas extends JPanel {
                     (i==0?128:30) * (Camara.far / Camara.distance(Main.redp[i].position) * Camara.near),
                     Main.redp[i].color);
 	    
-	        vec3 np = new vec3(
-                Main.redp[i].position.x + Math.cos(Main.redp[i].angle.y) * Math.cos(Main.redp[i].angle.x) * (-100),
-                Main.redp[i].position.y + Math.sin(Main.redp[i].angle.x) * (-100),
-                Main.redp[i].position.z + Math.sin(Main.redp[i].angle.y) * Math.cos(Main.redp[i].angle.x) * (-100) 
+  	        vec3 np = new vec3(
+                Main.redp[i].position.x + Math.cos(Main.redp[i].angle.y) * Math.cos(Main.redp[i].angle.x) * (-500),
+                Main.redp[i].position.y + Math.sin(Main.redp[i].angle.x) * (-500),
+                Main.redp[i].position.z + Math.sin(Main.redp[i].angle.y) * Math.cos(Main.redp[i].angle.x) * (-500) 
             );
 
             this.print(g,
