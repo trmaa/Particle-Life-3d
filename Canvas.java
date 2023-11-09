@@ -58,20 +58,6 @@ public class Canvas extends JPanel {
 
             Main.redp[i].move();
         }
-
-        //UI
-        this.println(g,                       
-            new vec2(Main.ventana.getWidth()*0.5-100,100-Main.ventana.getHeight()*0.5),
-            new vec2(Main.ventana.getWidth()*0.5-100,100-Main.ventana.getHeight()*0.5-Math.cos(Camara.angle.x)*32),
-            5,new Color(0xff0000));
-        this.println(g,                       
-            new vec2(Main.ventana.getWidth()*0.5-100,100-Main.ventana.getHeight()*0.5),
-            new vec2(Main.ventana.getWidth()*0.5-100+Math.sin(Camara.angle.y)*32,100-Main.ventana.getHeight()*0.5+Math.sin(Camara.angle.x)*32),
-            5,new Color(0x00ff00));
-        this.println(g,                       
-            new vec2(Main.ventana.getWidth()*0.5-100,100-Main.ventana.getHeight()*0.5),
-            new vec2(Main.ventana.getWidth()*0.5-100-Math.cos(Camara.angle.y)*32,100-Main.ventana.getHeight()*0.5+Math.sin(Camara.angle.x)*32),
-            5,new Color(0x0000ff));
     }
 
     public void cls(Graphics g, Color c) {
