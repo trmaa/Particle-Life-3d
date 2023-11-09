@@ -17,6 +17,12 @@ public class Canvas extends JPanel {
         //super.paintComponent(g);
 
         this.cls(g, new Color(0,0,0,255));
+
+        this.println(g,
+            new vec2(-Main.ventana.getWidth()*0.5,Math.sin(Camara.angle.x)*Main.ventana.getHeight()),
+            new vec2(Main.ventana.getWidth()*0.5,Math.sin(Camara.angle.x)*Main.ventana.getHeight()),
+            2,new Color(0xffffff)
+        );
 	
         this.print(g,
                 Camara.project(Particle.obj.position).x,
