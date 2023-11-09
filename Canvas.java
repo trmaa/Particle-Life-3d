@@ -32,11 +32,9 @@ public class Canvas extends JPanel {
                 256 * (Camara.far / Camara.distance(Particle.obj2.position) * Camara.near),
                 new Color(0x00ff00));
 
-        // Calcular distancias y ordenar Main.redp según esas distancias
         Arrays.sort(Main.redp, (a, b) -> Double.compare(
             Camara.distance(b.position), Camara.distance(a.position)));
 
-        // Representar los objetos Main.redp en orden de distancia (más cercano al más lejano)
         for (int i = 0; i < Main.redp.length; i++) {
             vec3 np = new vec3(
                 Main.redp[i].position.x + Math.cos(Main.redp[i].angle.y) * Math.cos(Main.redp[i].angle.x) * (-500),
@@ -60,6 +58,20 @@ public class Canvas extends JPanel {
 
             Main.redp[i].move();
         }
+
+        //UI
+        this.println(g,                       
+            new vec2(Main.ventana.getWidth()*0.5-100,100-Main.ventana.getHeight()*0.5),
+            new vec2(Main.ventana.getWidth()*0.5-100,100-Main.ventana.getHeight()*0.5-Math.cos(Camara.angle.x)*32),
+            5,new Color(0xff0000));
+        this.println(g,                       
+            new vec2(Main.ventana.getWidth()*0.5-100,100-Main.ventana.getHeight()*0.5),
+            new vec2(Main.ventana.getWidth()*0.5-100+Math.sin(Camara.angle.y)*32,100-Main.ventana.getHeight()*0.5+Math.sin(Camara.angle.x)*32),
+            5,new Color(0x00ff00));
+        this.println(g,                       
+            new vec2(Main.ventana.getWidth()*0.5-100,100-Main.ventana.getHeight()*0.5),
+            new vec2(Main.ventana.getWidth()*0.5-100-Math.cos(Camara.angle.y)*32,100-Main.ventana.getHeight()*0.5+Math.sin(Camara.angle.x)*32),
+            5,new Color(0x0000ff));
     }
 
     public void cls(Graphics g, Color c) {
@@ -77,5 +89,17 @@ public class Canvas extends JPanel {
         g.setColor(c);
         g.setFont(new Font(fnt, Font.BOLD, d));
         g.drawString(msg, x, y);
+    }
+    public void println(Graphics g, vec2 pointo, vec2 pointf, int thich, Color color) {
+        Graphics2D g2 = (Graphics2D) g;
+        g2.setColor(color);
+        g2.setStroke(new BasicStroke(thich)); // Establecer el grosor de la línea
+
+        g2.drawLine(
+            Utils.redondear(Main.ventana.getWidth() * 0.5 + pointo.x),
+            Utils.redondear(Main.ventana.getHeight() * 0.5 + pointo.y),
+            Utils.redondear(Main.ventana.getWidth() * 0.5 + pointf.x),
+            Utils.redondear(Main.ventana.getHeight() * 0.5 + pointf.y)
+        );
     }
 }
