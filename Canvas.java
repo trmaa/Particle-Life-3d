@@ -21,11 +21,11 @@ public class Canvas extends JPanel {
         this.println(g,
             new vec2(-Main.ventana.getWidth()*0.5,Math.sin(Camara.angle.x)*Main.ventana.getHeight()),
             new vec2(Main.ventana.getWidth()*0.5,Math.sin(Camara.angle.x)*Main.ventana.getHeight()),
-            2,new Color(0xffffff)
+            2,new Color(0x555555)
         );
         this.print(g,
             -Main.ventana.getWidth()*0.5,Math.sin(Camara.angle.x)*Main.ventana.getHeight(),
-            2000,1000,new Color(0x222222)
+            2000,1000,new Color(0x111111)
         );
 	
         this.print(g,
@@ -68,6 +68,23 @@ public class Canvas extends JPanel {
 
             Main.redp[i].move();
         }
+
+        Cursor.update();
+        this.println(g,
+            Camara.project(Cursor.position).add(new vec2(Main.ventana.getWidth()*0.5-100,100-Main.ventana.getHeight()*0.5)),
+            Camara.project(new vec3(Cursor.position.x,Cursor.position.y,Cursor.vertex.z)).add(new vec2(Main.ventana.getWidth()*0.5-100,100-Main.ventana.getHeight()*0.5)),
+            3,new Color(0x0000ff)
+        );
+        this.println(g,
+            Camara.project(Cursor.position).add(new vec2(Main.ventana.getWidth()*0.5-100,100-Main.ventana.getHeight()*0.5)),
+            Camara.project(new vec3(Cursor.vertex.x,Cursor.position.y,Cursor.position.z)).add(new vec2(Main.ventana.getWidth()*0.5-100,100-Main.ventana.getHeight()*0.5)),
+            3,new Color(0x00ff00)
+        );
+        this.println(g,
+            Camara.project(Cursor.position).add(new vec2(Main.ventana.getWidth()*0.5-100,100-Main.ventana.getHeight()*0.5)),
+            Camara.project(new vec3(Cursor.position.x,Cursor.vertex.y,Cursor.position.z)).add(new vec2(Main.ventana.getWidth()*0.5-100,100-Main.ventana.getHeight()*0.5)),
+            3,new Color(0xff0000)
+        );
     }
 
     public void cls(Graphics g, Color c) {

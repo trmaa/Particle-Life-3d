@@ -25,10 +25,12 @@ class vec3 {
         return Math.sqrt(Math.pow(this.x, 2) + Math.pow(this.y, 2) + Math.pow(this.z, 2));
     }
 
-    void add(vec3 vector) {
+    vec3 add(vec3 vector) {
         this.x += vector.x;
         this.y += vector.y;
         this.z += vector.z;
+
+        return this;
     }
 }
 
@@ -45,8 +47,10 @@ class vec2 {
         return Math.sqrt(Math.pow(this.x, 2) + Math.pow(this.y, 2));
     }
 
-    void add(vec2 vector) {
+    vec2 add(vec2 vector) {
         this.x += vector.x;
         this.y += vector.y;
+
+        return this;
     }
 }
