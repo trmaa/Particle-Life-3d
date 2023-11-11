@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.util.Arrays;
 
 public class Particle {
     public vec3 position;
