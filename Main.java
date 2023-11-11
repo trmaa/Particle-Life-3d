@@ -36,6 +36,8 @@ public class Main {
 
         God.move();
 
-        Particle.force();
+        Particle[][] p = {Main.redp,Main.grnp};
+        int[] dir = {1,1};
+        Particle.force(p,dir);
     }
 }
