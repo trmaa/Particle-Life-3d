@@ -27,8 +27,8 @@ public class MyKeyListener implements KeyListener {
         MyKeyListener.S = e.getKeyCode() == KeyEvent.VK_S ? true : MyKeyListener.S;
         MyKeyListener.D = e.getKeyCode() == KeyEvent.VK_D ? true : MyKeyListener.D;
 
-        MyKeyListener.E = e.getKeyCode() == KeyEvent.VK_E ? true : MyKeyListener.E;
-        MyKeyListener.Q = e.getKeyCode() == KeyEvent.VK_Q ? true : MyKeyListener.Q;
+        MyKeyListener.E = e.getKeyCode() == KeyEvent.VK_SPACE ? true : MyKeyListener.E;
+        MyKeyListener.Q = e.getKeyCode() == KeyEvent.VK_SHIFT ? true : MyKeyListener.Q;
     }
 
     @Override
@@ -43,8 +43,8 @@ public class MyKeyListener implements KeyListener {
         MyKeyListener.S = e.getKeyCode() == KeyEvent.VK_S ? false : MyKeyListener.S;
         MyKeyListener.D = e.getKeyCode() == KeyEvent.VK_D ? false : MyKeyListener.D;
 
-        MyKeyListener.E = e.getKeyCode() == KeyEvent.VK_E ? false : MyKeyListener.E;
-        MyKeyListener.Q = e.getKeyCode() == KeyEvent.VK_Q ? false : MyKeyListener.Q;
+        MyKeyListener.E = e.getKeyCode() == KeyEvent.VK_SPACE ? false : MyKeyListener.E;
+        MyKeyListener.Q = e.getKeyCode() == KeyEvent.VK_SHIFT ? false : MyKeyListener.Q;
     }
 
     @Override

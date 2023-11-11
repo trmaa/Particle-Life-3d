@@ -19,13 +19,13 @@ public class Canvas extends JPanel {
         this.cls(g, new Color(0,0,0,255));
 
         this.println(g,
-            new vec2(-Main.ventana.getWidth()*0.5,Math.sin(Camara.angle.x)*Main.ventana.getHeight()),
-            new vec2(Main.ventana.getWidth()*0.5,Math.sin(Camara.angle.x)*Main.ventana.getHeight()),
+            new vec2(-Main.ventana.getWidth()*0.5,Math.sin(Camara.angle.x)*Main.ventana.getHeight()*2/*+Camara.position.y*0.01*/),
+            new vec2(Main.ventana.getWidth()*0.5,Math.sin(Camara.angle.x)*Main.ventana.getHeight()*2/*+Camara.position.y*0.01*/),
             2,new Color(0x555555)
         );
         this.print(g,
-            -Main.ventana.getWidth()*0.5,Math.sin(Camara.angle.x)*Main.ventana.getHeight(),
-            2000,1000,new Color(0x111111)
+            -Main.ventana.getWidth()*0.5,Math.sin(Camara.angle.x)*Main.ventana.getHeight()*2/*+Camara.position.y*0.01*/,
+            Main.ventana.getWidth(),10000,new Color(0x111111)
         );
 	
         this.print(g,

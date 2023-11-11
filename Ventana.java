@@ -4,7 +4,7 @@ public class Ventana extends JFrame {
     public Ventana() {
         setTitle("Universo | trmaa");
 
-        setSize(1280, 720);
+        setSize(800, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         ImageIcon ico = new ImageIcon("icono.jpg");

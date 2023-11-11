@@ -4,7 +4,7 @@ public class Main {
     public static Canvas cvs = new Canvas();
     public static Ventana ventana = new Ventana();
 
-    public static Particle[] redp = new Particle[1000];
+    public static Particle[] redp = new Particle[5000];
 
     public static void main(String[] args) {
         int r = Utils.redondear(Math.random() * 100 + 155);
