@@ -19,15 +19,22 @@ public class Canvas extends JPanel {
         this.cls(g, new Color(0,0,0,255));
 
         this.println(g,
-            new vec2(-Main.ventana.getWidth()*0.5,Math.sin(Camara.angle.x)*Main.ventana.getHeight()*2+Camara.position.y*0.01),
-            new vec2(Main.ventana.getWidth()*0.5,Math.sin(Camara.angle.x)*Main.ventana.getHeight()*2+Camara.position.y*0.01),
+            new vec2(-Main.ventana.getWidth()*0.5,Math.sin(Camara.angle.x)*Main.ventana.getHeight()*2/*+Camara.position.y*0.01*/),
+            new vec2(Main.ventana.getWidth()*0.5,Math.sin(Camara.angle.x)*Main.ventana.getHeight()*2/*+Camara.position.y*0.01*/),
             2,new Color(0x555555)
         );
         this.print(g,
-            -Main.ventana.getWidth()*0.5,Math.sin(Camara.angle.x)*Main.ventana.getHeight()*2+Camara.position.y*0.01,
+            -Main.ventana.getWidth()*0.5,Math.sin(Camara.angle.x)*Main.ventana.getHeight()*2/*+Camara.position.y*0.01*/,
             Main.ventana.getWidth(),10000,new Color(0x111111)
         );
 	
+        // this.print(g,
+        //     Camara.project(Main.center.position).x,
+        //     Camara.project(Main.center.position).y,
+        //     256*(Camara.far / Camara.distance(Main.center.position) * Camara.near),
+        //     256*(Camara.far / Camara.distance(Main.center.position) * Camara.near),
+        //     Main.center.color);
+
         Particle[] tempp = Main.redp;
         Arrays.sort(tempp, (a, b) -> Double.compare(
             Camara.distance(b.position), Camara.distance(a.position)));
@@ -52,6 +59,32 @@ public class Canvas extends JPanel {
                 64*(Camara.far / Camara.distance(tempp[i].position) * Camara.near),
                 64*(Camara.far / Camara.distance(tempp[i].position) * Camara.near),
                 tempp[i].color);
+        }
+
+        Particle[] tempp2 = Main.grnp;
+        Arrays.sort(tempp2, (a, b) -> Double.compare(
+            Camara.distance(b.position), Camara.distance(a.position)));
+
+        for (int i = 0; i < tempp2.length; i++) {
+            vec3 np = new vec3(
+                tempp2[i].position.x + Math.cos(tempp2[i].angle.y) * Math.cos(tempp2[i].angle.x) * (-500),
+                tempp2[i].position.y + Math.sin(tempp2[i].angle.x) * (-500),
+                tempp2[i].position.z + Math.sin(tempp2[i].angle.y) * Math.cos(tempp2[i].angle.x) * (-500)
+            );
+
+            // this.print(g,
+            //     Camara.project(np).x,
+            //     Camara.project(np).y,
+            //     32*(Camara.far / Camara.distance(Main.redp[i].position) * Camara.near) * 0.5,
+            //     32*(Camara.far / Camara.distance(Main.redp[i].position) * Camara.near) * 0.5,
+            //     new Color(0x000000));
+            
+            this.print(g,
+                Camara.project(tempp2[i].position).x,
+                Camara.project(tempp2[i].position).y,
+                64*(Camara.far / Camara.distance(tempp2[i].position) * Camara.near),
+                64*(Camara.far / Camara.distance(tempp2[i].position) * Camara.near),
+                tempp2[i].color);
         }
 
         Cursor.update();
