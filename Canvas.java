@@ -19,37 +19,24 @@ public class Canvas extends JPanel {
         this.cls(g, new Color(0,0,0,255));
 
         this.println(g,
-            new vec2(-Main.ventana.getWidth()*0.5,Math.sin(Camara.angle.x)*Main.ventana.getHeight()*2/*+Camara.position.y*0.01*/),
-            new vec2(Main.ventana.getWidth()*0.5,Math.sin(Camara.angle.x)*Main.ventana.getHeight()*2/*+Camara.position.y*0.01*/),
+            new vec2(-Main.ventana.getWidth()*0.5,Math.sin(Camara.angle.x)*Main.ventana.getHeight()*2+Camara.position.y*0.01),
+            new vec2(Main.ventana.getWidth()*0.5,Math.sin(Camara.angle.x)*Main.ventana.getHeight()*2+Camara.position.y*0.01),
             2,new Color(0x555555)
         );
         this.print(g,
-            -Main.ventana.getWidth()*0.5,Math.sin(Camara.angle.x)*Main.ventana.getHeight()*2/*+Camara.position.y*0.01*/,
+            -Main.ventana.getWidth()*0.5,Math.sin(Camara.angle.x)*Main.ventana.getHeight()*2+Camara.position.y*0.01,
             Main.ventana.getWidth(),10000,new Color(0x111111)
         );
 	
-        this.print(g,
-                Camara.project(Particle.obj.position).x,
-                Camara.project(Particle.obj.position).y,
-                256 * (Camara.far / Camara.distance(Particle.obj.position) * Camara.near),
-                256 * (Camara.far / Camara.distance(Particle.obj.position) * Camara.near),
-                new Color(0x00ffff));
-        
-        this.print(g,
-                Camara.project(Particle.obj2.position).x,
-                Camara.project(Particle.obj2.position).y,
-                256 * (Camara.far / Camara.distance(Particle.obj2.position) * Camara.near),
-                256 * (Camara.far / Camara.distance(Particle.obj2.position) * Camara.near),
-                new Color(0x00ff00));
-
-        Arrays.sort(Main.redp, (a, b) -> Double.compare(
+        Particle[] tempp = Main.redp;
+        Arrays.sort(tempp, (a, b) -> Double.compare(
             Camara.distance(b.position), Camara.distance(a.position)));
 
-        for (int i = 0; i < Main.redp.length; i++) {
+        for (int i = 0; i < tempp.length; i++) {
             vec3 np = new vec3(
-                Main.redp[i].position.x + Math.cos(Main.redp[i].angle.y) * Math.cos(Main.redp[i].angle.x) * (-500),
-                Main.redp[i].position.y + Math.sin(Main.redp[i].angle.x) * (-500),
-                Main.redp[i].position.z + Math.sin(Main.redp[i].angle.y) * Math.cos(Main.redp[i].angle.x) * (-500)
+                tempp[i].position.x + Math.cos(tempp[i].angle.y) * Math.cos(tempp[i].angle.x) * (-500),
+                tempp[i].position.y + Math.sin(tempp[i].angle.x) * (-500),
+                tempp[i].position.z + Math.sin(tempp[i].angle.y) * Math.cos(tempp[i].angle.x) * (-500)
             );
 
             // this.print(g,
@@ -60,13 +47,11 @@ public class Canvas extends JPanel {
             //     new Color(0x000000));
             
             this.print(g,
-                Camara.project(Main.redp[i].position).x,
-                Camara.project(Main.redp[i].position).y,
-                64*(Camara.far / Camara.distance(Main.redp[i].position) * Camara.near),
-                64*(Camara.far / Camara.distance(Main.redp[i].position) * Camara.near),
-                Main.redp[i].color);
-
-            Main.redp[i].move();
+                Camara.project(tempp[i].position).x,
+                Camara.project(tempp[i].position).y,
+                64*(Camara.far / Camara.distance(tempp[i].position) * Camara.near),
+                64*(Camara.far / Camara.distance(tempp[i].position) * Camara.near),
+                tempp[i].color);
         }
 
         Cursor.update();
