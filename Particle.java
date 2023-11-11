@@ -10,7 +10,7 @@ public class Particle {
 
     public RigidBody rb = new RigidBody();
 
-    public static Particle obj = new Particle(new vec3(3000, 3000, -3000), new Color(0xff0000), -5.81f);
+    public static Particle obj = new Particle(new vec3(3000, 3000, -3000), new Color(0xff0000), -9.81f);
     public static Particle obj2 = new Particle(new vec3(4000, 4000, -4000), new Color(0xffff00), 15.81f);
 
     public Particle(vec3 point, Color color, float g) {
