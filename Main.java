@@ -36,25 +36,6 @@ public class Main {
 
         God.move();
 
-        for(int i = 0;i < Main.redp.length;i++){
-            // Main.redp[i].rb.force(Main.redp[i],Main.center);
-            // Main.grnp[i].rb.force(Main.grnp[i],Main.center);
-            for(int j = 0;j < Main.redp.length;j++){
-                if(Main.redp[i].position != Main.redp[j].position){
-                    Main.redp[i].g = 0.1; 
-                    Main.grnp[i].g = -0.5; 
-                    Main.redp[i].rb.force(Main.redp[i],Main.grnp[j]); 
-                    Main.grnp[i].rb.force(Main.grnp[i],Main.redp[j]);
-                    Main.redp[i].g = 0; 
-                    Main.grnp[i].g = 0.05; 
-                    Main.redp[i].rb.force(Main.redp[i],Main.redp[j]); 
-                    Main.grnp[i].rb.force(Main.grnp[i],Main.grnp[j]); 
-                }else 
-                    continue;
-            }
-            //System.out.println(Main.redp[0].velocity.x);
-            Main.redp[i].move();
-            Main.grnp[i].move();
-        }
+        Particle.force();
     }
 }
