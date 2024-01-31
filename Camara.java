@@ -15,15 +15,15 @@ public class Camara {
     public static vec3 translete(vec3 point) {
         // para angulo y (x,z)
         double a = Math.atan2(point.x - Camara.position.x, point.z - Camara.position.z);
-        double b = (180 - (a * 180 / Math.PI) - 90) * Math.PI / 180;
-        double c = (Camara.angle.y - Math.PI * 0.5) - b;
+        double b = Math.PI-a-Math.PI/2;
+        double c = Camara.angle.y - Math.PI/2 - b;
 
         double h = (point.z - Camara.position.z) / Math.cos(a);
 
         // para angulo x (y)
         double d = Math.atan2(h, point.y - Camara.position.y);
-        double e = (180 - (d * 180 / Math.PI) - 90) * Math.PI / 180;
-        double f = (Camara.angle.x - Math.PI * 0.5) - e;
+        double e = Math.PI-d-Math.PI/2;
+        double f = Camara.angle.x - Math.PI/2 - e;
 
         double i = (point.y - Camara.position.y) / Math.cos(d);
 
